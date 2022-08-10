@@ -1,0 +1,95 @@
+.main-row {
+    display: flex;
+    height: 97vh;
+    width: 97vw;
+}
+
+.wrapper {
+    margin-right: auto; /* 1 */
+    margin-left:  auto; /* 1 */
+  
+    max-width: 960px; /* 2 */
+  
+    padding-right: 10px; /* 3 */
+    padding-left:  10px; /* 3 */
+}
+  
+.side-col {
+    flex: 25%;
+    padding: 10px;
+    height: 100%; 
+}
+
+.middle-col {
+    flex: 50%;
+    padding: 10px;
+    height: 100%; 
+}
+
+.middle-row-top-bottom {
+    height: 10%;
+    flex: 100%;
+}
+
+.middle-row-middle {
+    height: 50%;
+    flex: 100%;
+}
+
+.image-popcorndude {
+    width: 45%;
+}
+
+.logo {
+    flex: 100%;
+    height: 15%;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.image-logo {
+    width: 200px;
+    height: 75px;
+}
+
+.login {
+    height: 25%;
+    flex: 100%;
+    padding-top: 5%;
+    text-align: center;
+}
+
+.sign-up {
+    height: 30%;
+    flex: 100%;
+    text-align: center;
+}
+
+.login-div {
+    padding-top: 15%;
+    padding-bottom: 15%;
+    height: 85%;
+    width: 50%;
+    float: right;
+    border-radius: 2ch;
+}
+
+.login-box {
+    background-color: lightgray;
+    border:solid 2px gray;
+    padding-bottom: 10%;
+    border-radius: 2ch;
+}
+
+
+.bottom-row {
+    display: flex;
+    height: 20vh;
+    
+}
+
+.image-film {
+    padding-left: 25%;
+    width: 1000px;
+    height: 250px;
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--adding title and linking js and css-->    
+        <title>GameList</title>
+        <link rel = "stylesheet" href = "../CSS/list.css">       
+        <script src = "../JS/list.js"></script>
+    </head>
+<body style = "background-color: lightgray;">
+
+    <!--header containing profile pic, page title, and  other page links -->
+    <header class = "profile-header">
+        <div style = "width: 275px;height:200px"></div>
+        <div style = "max-height: 200px;">
+            <img class = "profile-pic" src = "../resources/blank-profile-pic.png">
+            <p id = "usernameText" style = "text-align: center;margin:4px;"></p>
+        </div>
+        <div style = "width: 85px;height:200px"></div>
+        <img style = "height:200px;padding-left: 150px;" src = "../resources/gamelist.png">
+        <div style = "width: 250px;height:200px"></div>
+        <div class = "page-links">
+            <p><a href = "../HTML/profile.html">Profile</a></p>
+            <p><a href = "../HTML/watchlist.html">WatchList</a></p>
+            <p><a href = "../HTML/gamelist.html">GameList</a></p>
+            <p><a href = "../HTML/recommendations.html">Recommendations</a></p>      
+            <p><a href = "../HTML/index.html">Logout</a></p>    
+        </div>
+    </header>
+
+    <!--spacer div to seperate the header from the list menu-->
+    <div style = "height: 50px;"></div>
+
+    <!--div containing the different tabs avaliable and the add movie button-->
+    <div class = "content-box">
+        <button id = "allTab" class = "tab" onclick = "getData(event, 'all')">All</button>
+        <button class = "tab" onclick = "getData(event, 'favorites')">Favorites</button>
+        <button class = "tab" onclick = "getData(event, 'watched')">Played</button>
+        <button class = "tab" onclick = "getData(event, 'haventwatched')">Haven't Played</button>
+        <button class = "tab" onclick = "tabClick(event, 'customLists')">Custom Lists</button>
+        <button class = "add-button" onclick = "openForm()">Add Game</button>
+        <div class = "search-bar">
+            <input type = "text" onkeyup = "search()" id = "searchFilter" placeholder="Search by name...">
+        </div>    
+    </div>  
+
+    <!--following 4 divs are blank tables correlated to the above 4 tabs, that are to be filled with movie data-->
+    <div id = "all" class = "list-content">
+        <table class = "table" id = "allTable"  onclick = "selectRow(event)">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Rating</th>
+                    <th>Year</th>
+                    <th>Favorite</th>
+                    <th>Played</th>
+                </tr>
+            </thead>
+            <tbody id = "allTableBody"></tbody>
+        </table> 
+    </div>
+
+    <div id = "table" class = "list-content">
+        <table class = "table" id = "otherTable"  onclick = "selectRow(event)">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Rating</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody id = "tableBody"></tbody>
+        </table> 
+    </div>
+
+    <div id = "customLists" class = "list-content">
+    </div>
+
+    <div id = "deleteForm" class = "form-div-delete">
+        <h4 style = "text-align: center;padding: 15px;">Delete?</h4>
+        <div style = "padding: 15px;text-align: center;">
+            <input class = "form-button" onclick = "remove()" value = "Yes">
+            <input class = "form-button" onclick = "openDeleteForm()" value = "No">
+        </div>
+    </div>
+
+    <!--div that contains the add movie popup form, display initial set to "none"-->
+    <div id = "form" class = "form-div">
+        <header>
+            <img style = "width: 500px;height:200px;padding:10px;" src = "../resources/gamebanner.png">
+        </header>
+        <form class = "form" >
+            <!--name input, textfield-->
+            <label>Name:</label>
+            <br/>
+            <input class = "text-input" type = "text" id = "name">
+            </br>
+            </br>
+
+            <!--year input, textfield-->
+            <label>Year:</label>
+            <br/>
+            <input class = "text-input" type = "text" id = "year">
+            </br>
+            </br>
+
+            <!--rating input, radio buttons-->
+            <label>Rating:</label>
+            <br/>
+            <input type = "radio" class = "radio-input" name = "radioRatingButtons" value = "1">
+            <label>1</label>
+            <input type = "radio" class = "radio-input" name = "radioRatingButtons" value = "2">
+            <label>2</label>
+            <input type = "radio" class = "radio-input" name = "radioRatingButtons" value = "3">
+            <label>3</label>
+            <input type = "radio" class = "radio-input" name = "radioRatingButtons" value = "4">
+            <label>4</label>          
+            <input type = "radio" class = "radio-input" name = "radioRatingButtons" value = "5">
+            <label>5</label>
+            </br>
+            </br>
+
+            <!--favorite input, radio buttons-->
+            <label>Favorite?</label>
+            <br/>
+            <label>Yes</label>
+            <input type = "radio" class = "radio-input" id = "favoriteYes" name = "favoriteRadioButtons" value = "Yes">
+            <label>No</label>
+            <input type = "radio" class = "radio-input" id = "favoriteNo" name = "favoriteRadioButtons" value = "No">
+            </br>
+            </br>
+
+            <!--watched input, radio buttons-->
+            <label>Played?</label>
+            <br/>
+            <label>Yes</label>
+            <input type = "radio" class = "radio-input" id = "yes" name = "watchedRadioButtons" value = "Yes">
+            <label>No</label>
+            <input type = "radio" class = "radio-input" id = "no" name = "watchedRadioButtons" value = "No">
+            </br>
+            </br>
+        </form>
+        <div style = "padding: 15px;text-align: center;">
+            <!--add and close buttons on form-->
+            <input class = "form-button" onclick = "addEntry()" value = "Add">
+            <input class = "form-button" onclick = "openForm()" value = "Close">
+        </div>
+    </div>
+</body>
+</html>

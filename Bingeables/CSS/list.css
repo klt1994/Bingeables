@@ -1,0 +1,153 @@
+.profile-header {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border:solid 2px gray;
+    height: 220px;
+}
+
+.profile-pic {
+    height:175px;
+    border:solid 2px gray;
+    border-radius: 12ch;
+    background-color: lightgray;
+}
+
+.title-text {
+    padding-left: 200px;
+    height: 50;
+}
+
+.page-links {
+    text-align: right;
+}
+
+.content-box {
+    overflow:  hidden;
+    border:solid 2px gray;
+    background-color: white;
+}
+
+.tab {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;  
+}
+  
+.tab:hover {
+    background-color: #ff9c9c;
+}
+  
+.tab.active {
+    background-color: #ff9c9c;
+}
+
+.search-bar {
+    float: right;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.add-button {
+    padding-top:12px;
+    padding-bottom:12px;
+    border:solid 2px rgba(256, 84, 84, 0.35);
+    float: right;
+    background-color: rgba(256, 84, 84, 0.35);
+}
+
+.add-button:hover {
+    background-color: #ff9c9c;
+}
+
+.list-content {
+    display: none;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.table {
+    overflow-y: scroll;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th {
+    background-color: black;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.table td, .table tr {
+    border: 2px solid gray;
+    padding: 8px;
+}
+
+.table tr:nth-child(even) {
+    background-color:white;
+}
+
+.table tr:nth-child(odd) {   
+    background-color:rgba(256, 84, 84, 0.35);
+}
+
+.table tr:hover {
+    background-color: rgb(211,211,211);
+}
+
+.form-div {
+    z-index: 9;
+    background-color: white;
+    border:solid 2px gray;
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 37%;
+    box-shadow: 0 0 8px  #ff9c9c;
+}
+
+.form-div-delete {
+    z-index: 9;
+    background-color: white;
+    border:solid 2px gray;
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 45%;
+    box-shadow: 0 0 8px  #ff9c9c;
+}
+
+.form {
+    padding: 25px;
+}
+
+.text-input {
+    width: 100%;
+    border-radius: 3px;
+}
+
+.text-input:focus {
+    box-shadow: 0 0 8px  #ff9c9c;
+}
+
+.radio-input:hover {
+    box-shadow: 0 0 8px  #ff9c9c;
+}
+
+.form-button {
+    padding: 12px;
+    background-color: rgba(256, 84, 84, 0.35);
+    text-align: center;
+    width: 75px;
+    border:solid 2px rgba(256, 84, 84, 0.35);
+}
+
+.form-button:hover {
+    background-color: #ff9c9c;
+}
